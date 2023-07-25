@@ -124,9 +124,11 @@ window.addEventListener("load", () => {
     const task = input.value.trim();
     //const taskClass = task.replace(/\s+/g, "-").toLowerCase();
     let obj = newTask(task);
-    storedInput.push(obj);
-    newElement(obj, e);
-    saveTasksToLocalStorage();
+    if(obj){
+      storedInput.push(obj);
+      newElement(obj, e);
+      saveTasksToLocalStorage();
+    }
     input.value = "";
   });
 
