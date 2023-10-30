@@ -27,8 +27,8 @@ window.addEventListener("load", () => {
     );
     if (taskIndex !== -1) {
       storedInput.splice(taskIndex, 1);
-      localStorage.setItem("textInput", JSON.stringify(storedInput));
       list_element.removeChild(task_list);
+      saveTasksToLocalStorage();
     }
   };
 
@@ -124,7 +124,7 @@ window.addEventListener("load", () => {
     const task = input.value.trim();
     //const taskClass = task.replace(/\s+/g, "-").toLowerCase();
     let obj = newTask(task);
-    if(obj){
+    if(obj != null){
       storedInput.push(obj);
       newElement(obj, e);
       saveTasksToLocalStorage();
